@@ -1,0 +1,20 @@
+<h1>Выберите дату и код валюты</h1>
+
+<form method="GET">
+    <input type="date"
+           name="edt_select_date"
+           value={{ date_default }}
+           id="id_date"/>
+    <br/>
+    <p>
+        <select name="cmb_select_currency">
+            <datalist id="cmb_select_currency">
+                {% for cur_code in currency_list %}
+                    <option>{{ cur_code }}</option>
+                {% endfor %}
+            </datalist>
+        </select>
+    </p>
+    <input type="submit" value="Показать курс"/>
+</form>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}

@@ -1,0 +1,11 @@
+<h1>Выберите дату для загрузки курсов валют с сайта НБРБ</h1>
+<form method="POST">{% csrf_token %}
+    <input type="date"
+           name="edt_select_date"
+           value={{ date_default }}
+           id="id_date"/>
+    <br/>
+    <br/>
+    <input type="submit" value="Загрузить в систему" formaction="{% url 'rates:import_rates' %}"/>
+</form>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
